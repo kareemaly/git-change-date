@@ -3,6 +3,6 @@
     "mocha": true
   },
   "rules": {
-    // custom rules just for tests
+    "no-unused-expressions": 0
   }
 }

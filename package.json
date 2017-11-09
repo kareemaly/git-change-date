@@ -13,6 +13,7 @@
   },
   "main": "index.js",
   "scripts": {
+    "start": "babel-node src",
     "clean": "rimraf dist",
     "build": "babel src -d dist",
     "lint": "eslint src tests",
@@ -33,9 +34,15 @@
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.8.0",
     "mocha": "^4.0.1",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "sinon": "^4.1.2"
   },
   "dependencies": {
-    "babel-runtime": "^6.26.0"
+    "babel-runtime": "^6.26.0",
+    "cli-table": "^0.3.1",
+    "colors": "^1.1.2",
+    "minimist": "^1.2.0",
+    "moment": "^2.19.2",
+    "prompt": "^1.0.0"
   }
 }
