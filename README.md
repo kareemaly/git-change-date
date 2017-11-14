@@ -7,14 +7,14 @@ Simple command line to change old commits author and committer dates.
 ## Installation
 
 ```
-npm install -g gcd
+npm install -g git-change-date
 ```
 
 ## CLI Usage
 Please ensure that you are on the correct directory of the repository you want
 to modify and that there are no unstaged changes before running this.
 
-Usage: `gcd [options]`
+Usage: `git-change-date [options]`
 
 Options:
 ```

@@ -1,8 +1,9 @@
 {
   "name": "git-change-date",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "license": "MIT",
   "description": "Simple command line to change old commits dates.",
+  "author": "Kareem Elbahrawy <bitriddler@gmail.com>",
   "keywords": [
     "git",
     "date"
@@ -11,9 +12,7 @@
     "type": "git",
     "url": "https://github.com/bitriddler/git-change-date.git"
   },
-  "main": "index.js",
   "scripts": {
-    "start": "babel-node src",
     "clean": "rimraf dist",
     "build": "babel src -d dist",
     "lint": "eslint src tests",
@@ -44,5 +43,6 @@
     "minimist": "^1.2.0",
     "moment": "^2.19.2",
     "prompt": "^1.0.0"
-  }
+  },
+  "bin": "./dist/bin.js"
 }
