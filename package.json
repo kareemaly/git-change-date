@@ -13,6 +13,7 @@
     "url": "https://github.com/bitriddler/git-change-date.git"
   },
   "scripts": {
+    "dev": "babel-node src/bin",
     "clean": "rimraf dist",
     "build": "babel src -d dist",
     "lint": "eslint src tests",
