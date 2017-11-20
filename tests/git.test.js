@@ -28,9 +28,9 @@ describe('git', () => {
     two together.
 `;
   const commitLog = `
-      commit ${hash} (HEAD -> master)
-      Author: ${name} <${email}>
-      Date:   ${date}
+commit ${hash} (HEAD -> master)
+Author: ${name} <${email}>
+Date:   ${date}
 
       ${message}
   `;

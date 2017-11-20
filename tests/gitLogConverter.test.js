@@ -24,9 +24,9 @@ describe('gitLogConverter', () => {
   describe('convertCommit', () => {
     it('should return an object describing the commit', async () => {
       const commit = await convertCommit(`
-        commit ${hash} (HEAD -> master)
-        Author: ${name} <${email}>
-        Date:   ${date}
+commit ${hash} (HEAD -> master)
+Author: ${name} <${email}>
+Date:   ${date}
 
         ${message}
       `);
@@ -42,21 +42,21 @@ describe('gitLogConverter', () => {
   describe("default", () => {
     it("should return an array of objects describing the commits log", async () => {
       const commits = await gitLogConverter(`
-        commit ${hash} (HEAD -> master)
-        Author: ${name} <${email}>
-        Date:   ${date}
+commit ${hash} (HEAD -> master)
+Author: ${name} <${email}>
+Date:   ${date}
 
         ${message}
 
-        commit ${hash}
-        Author: ${name} <${email}>
-        Date:   ${date}
+commit ${hash}
+Author: ${name} <${email}>
+Date:   ${date}
 
         ${message}
 
-        commit ${hash}
-        Author: ${name} <${email}>
-        Date:   ${date}
+commit ${hash}
+Author: ${name} <${email}>
+Date:   ${date}
 
         ${message}
 
