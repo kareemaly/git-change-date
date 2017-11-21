@@ -37,4 +37,4 @@ and pull.
 
 ## License
 
-MIT @ (Kareem Elbahrawy)[http://www.bitriddler.com]
+MIT @ [Kareem Elbahrawy](http://www.bitriddler.com)
