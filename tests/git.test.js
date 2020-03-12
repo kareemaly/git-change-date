@@ -72,8 +72,8 @@ Date:   ${date}
 
   describe('changeDate', () => {
     it('should execute command with correct arguments passed', () => {
-      const authorDate = moment();
-      const committerDate = moment().add(1, 'seconds');
+      const authorDate = 'Thu Mar 12 09:34:01 2020 -0500';
+      const committerDate = 'Thu Mar 12 09:34:10 2020 -0500';
       const execStub = sandbox.stub(childProcess, 'exec');
 
       changeDate('somepath', '1234', authorDate, committerDate);
@@ -87,22 +87,40 @@ Date:   ${date}
         .to.match(new RegExp(escapeRegExp(`GIT_COMMIT = 1234`)));
     });
 
-    it('should change call throwError if error happens', () => {
-      const authorDate = moment();
-      const committerDate = moment().add(1, 'seconds');
+    it('should understand dates in natural language', () => {
+      const authorDate = '12 March 2020 at 1pm';
+      const committerDate = '12 March 2020 at 2pm';
       const execStub = sandbox.stub(childProcess, 'exec');
 
-      const promise = changeDate('1234', authorDate, committerDate);
+      changeDate('somePath', 'someHash', authorDate, committerDate);
 
-      execStub.callArg(1, new Error("something"));
+      expect(execStub.calledOnce).to.be.true;
+      expect(execStub.firstCall.args[0])
+        .to.match(new RegExp(escapeRegExp(`GIT_AUTHOR_DATE="${
+          formatGitDate('Thu Mar 12 13:00:00 2020')
+        }"`)));
+      expect(execStub.firstCall.args[0])
+        .to.match(new RegExp(escapeRegExp(`GIT_COMMITTER_DATE="${
+          formatGitDate('Thu Mar 12 14:00:00 2020')
+        }"`)));
+    });
+
+    it('should call throwError if error happens', () => {
+      const authorDate = 'Thu Mar 12 09:34:01 2020 -0500';
+      const committerDate = 'Thu Mar 12 09:34:10 2020 -0500';
+      const execStub = sandbox.stub(childProcess, 'exec');
+
+      const promise = changeDate('somePath', 'someHash', authorDate, committerDate);
+
+      execStub.callArg(1, new Error('something'));
 
       return promise
         .then(() => {
-          throw new Error("don't catch");
+          throw new Error('don\'t catch');
         })
         .catch((err) => {
           expect(err).to.be.instanceOf(Error);
-          expect(err.message).equal("something");
+          expect(err.message).equal('something');
         });
     });
   });
