@@ -22,6 +22,11 @@ const welcome = () => {
   \\/_____________/\\/_/    \\_\\/    
 
 If you don't see formatted output, try to increase width of the terminal to have more space.
+
+Some degree of natural language is supported in date formatting, e.g. 
+ - "This Friday at 13:15"
+ - "5 days ago"
+ - "2 weeks from now" 
 `);
 };
 

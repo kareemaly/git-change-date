@@ -1,4 +1,5 @@
 import moment from 'moment';
+import chrono from 'chrono-node';
 import throwError from './errors/throwError';
 import gitLogConverter from './gitLogConverter';
 import execute from './execute';
@@ -17,7 +18,7 @@ export const getCommits = async (path, { count, hash }) => {
 };
 
 export const formatGitDate = (date) => {
-  const momentDate = moment(date);
+  const momentDate = moment(chrono.parseDate(date));
   if (!momentDate.isValid()) {
     throwError(new Error("DATE_INVALID"));
   }
