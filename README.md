@@ -28,8 +28,7 @@ Options:
 
 When you run this command you will be prompted to:
 - Enter commit number in the list
-- Enter the new date **the entered date must be in a format moment can parse**
-https://momentjs.com/docs/#/parsing/string/
+- Enter the new date in natural language. ISO 8601 formats are also supported. See [chrono-node](https://www.npmjs.com/package/chrono-node) for more details.
 
 After making modifications you will have to force push to remote repositories
 and anyone who has pulled these commits or any future commits will have to reset
