@@ -9,9 +9,9 @@ export const getCommits = async (path, { count, hash }) => {
   let commitLog;
 
   if (hash) {
-    commitLog = await execute(`cd ${path} && git log -1 -U ${hash} --pretty`);
+    commitLog = await execute(`cd "${path}" && git log -1 -U ${hash} --pretty`);
   } else {
-    commitLog = await execute(`cd ${path} && git log -n${count} --pretty`);
+    commitLog = await execute(`cd "${path}" && git log -n${count} --pretty`);
   }
   return gitLogConverter(commitLog);
 };
